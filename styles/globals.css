@@ -2,6 +2,15 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@import "./markdown.css";
+
+@layer utilities {
+  .py-05 {
+    padding-top: 0.125rem;
+    padding-bottom: 0.125rem;
+  }
+}
+
 @layer components {
   .app {
     position: fixed;
