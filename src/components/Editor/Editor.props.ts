@@ -4,7 +4,6 @@ export type Page = {
 };
 
 export type EditorProps = {
-  answerPage: Page;
+  answerFile: Page;
   pages: Page[];
-  settings: boolean;
 };
