@@ -2,13 +2,40 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@layer components {
+  .app {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .editor {
+    position: absolute;
+    height: calc(100% - 8rem);
+    top: 4rem;
+    left: 4rem;
+    right: 4rem;
+  }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+#code_editor {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
 }
 
-* {
-  box-sizing: border-box;
+.monaco-editor,
+.monaco-editor-background,
+.monaco-editor .inputarea.ime-input {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.monaco-editor .margin {
+  background-color: rgba(0, 0, 0, 0.1) !important;
 }
