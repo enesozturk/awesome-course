@@ -17,10 +17,9 @@
 
   .editor {
     position: absolute;
-    height: calc(100% - 8rem);
-    top: 4rem;
-    left: 4rem;
-    right: 4rem;
+    width: calc(100% / 2 - 4rem);
+    height: calc(100% - 4rem);
+    right: 2rem;
   }
 }
 
