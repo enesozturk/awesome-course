@@ -2,10 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-import { remark } from "remark";
-import remarkHtml from "remark-html";
-
-const ROOT_PATH = "./course";
+import { ROOT_PATH } from "./constants";
 
 export const queryFiles = ({
   _path,
@@ -69,14 +66,4 @@ export const getAnswerFile = (lessonId: string, chapterId: string) => {
       body,
     };
   });
-};
-
-export const renderHtml = (lessonId: string, chapterId: string) => {
-  return remark()
-    .use(remarkHtml)
-    .processSync(
-      fs.readFileSync(
-        `${ROOT_PATH}/lesson-${lessonId}/chapter-${chapterId}/readme.md`
-      )
-    ).value;
 };
