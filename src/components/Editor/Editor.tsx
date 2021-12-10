@@ -9,7 +9,7 @@ export default function Editor({ answerFile, pages }: EditorProps) {
 
   const editorRef = React.useRef(null);
 
-  function handleEditorDidMount(editor, monaco) {
+  function handleEditorDidMount(editor: any) {
     editorRef.current = editor;
   }
 
