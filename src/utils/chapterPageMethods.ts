@@ -1,12 +1,19 @@
+import { NextPageContext } from "next";
+
+export interface Context extends NextPageContext {
+  params: {
+    lessonId: string;
+    chapterId: string;
+  };
+}
+
 import {
   getAnswerFile,
   getChapters,
   getCodeFiles,
   getLessons,
-} from "../../../../src/components/lib/file";
-import { renderHtml } from "../../../../src/components/lib/markdown";
-
-import type { Context } from "./propTypes";
+} from "../lib/file";
+import { renderHtml } from "../lib/markdown";
 
 export const _getStaticProps = (context: Context) => {
   const {

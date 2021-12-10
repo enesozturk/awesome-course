@@ -1,7 +1,10 @@
 import dynamic from "next/dynamic";
 
-import { _getStaticPaths, _getStaticProps } from "./utils";
-import type { Context } from "./propTypes";
+import {
+  _getStaticPaths,
+  _getStaticProps,
+} from "../../../../src/utils/chapterPageMethods";
+import type { Context } from "../../../../src/utils/chapterPageMethods";
 
 const Editor = dynamic(() => import("../../../../src/components/Editor"), {
   ssr: false,
