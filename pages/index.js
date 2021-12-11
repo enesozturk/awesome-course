@@ -2,13 +2,10 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="app bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
-      <nav>
-        <div className="container mx-auto px-4"></div>
-      </nav>
+    <div className="app bg-white dark:bg-gray-800 text-gray-900 dark:text-white overflow-auto">
       <main className="flex flex-col items-center relative relative max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32 mb-16 px-4">
         <div
-          className="sm:h-96 sm:w-full max-h-96 mb-8 
+          className="h-48 sm:h-96 w-full max-h-96 mb-8 
           bg-keyboard-light
           dark:bg-keyboard-dark
           bg-contain bg-no-repeat bg-center"
@@ -22,7 +19,7 @@ export default function Home() {
           Awesome Course lets you create your own courses that let your audience
           learn by coding.
         </p>
-        <div className="mt-8 mb-8">
+        <div className="mt-8 mb-8 flex flex-col sm:flex-row items-center">
           <Link href="https://github.com/enesozturk/awesome-course">
             <a className="mt-6 text-white bg-gray-700 dark:bg-gray-600 hover:bg-gray-600 hover:dark:bg-gray-500 py-4 px-6 rounded-md mr-2">
               See on Github
