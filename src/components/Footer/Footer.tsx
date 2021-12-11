@@ -1,7 +1,7 @@
 import React from "react";
 
 import Link from "next/link";
-import type { FooterProps } from "./Footer.types";
+import type { FooterProps } from "../../types/Footer";
 
 export default function Footer({
   title,
@@ -11,6 +11,9 @@ export default function Footer({
   nextChapter,
   currentChapterIndex,
   chaptersLength,
+  checkAnswer,
+  showAnswer,
+  setShowAnswer,
 }: FooterProps) {
   return (
     <footer className="flex justify-between w-full px-8 py-4 box-border bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white">
@@ -20,8 +23,19 @@ export default function Footer({
         </div>
       </div>
       <div className="flex-1 flex justify-center">
-        <button className="p-2 box-border bg-blue-100 hover:bg-blue-200 dark:bg-blue-800 dark:hover:bg-blue-800 dark:bg-opacity-40 dark:hover:bg-opacity-50 text-blue-500 dark:text-blue-400 flex items-center justify-center rounded-md cursor-pointer">
+        <button
+          onClick={checkAnswer}
+          className="p-2 box-border bg-blue-100 hover:bg-blue-200 dark:bg-blue-800 dark:hover:bg-blue-800 dark:bg-opacity-40 dark:hover:bg-opacity-50 text-blue-500 dark:text-blue-400 flex items-center justify-center rounded-md cursor-pointer mr-4"
+        >
           Check Answer
+        </button>
+        <button
+          onClick={() => {
+            setShowAnswer(!showAnswer);
+          }}
+          className="p-2 box-border bg-blue-100 hover:bg-blue-200 dark:bg-blue-800 dark:hover:bg-blue-800 dark:bg-opacity-40 dark:hover:bg-opacity-50 text-blue-500 dark:text-blue-400 flex items-center justify-center rounded-md cursor-pointer"
+        >
+          {showAnswer ? "Hide Answer" : "Show Answer"}
         </button>
       </div>
       <div className="flex-1 flex justify-end">

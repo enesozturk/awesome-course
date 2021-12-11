@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 
 import { ROOT_PATH } from "./constants";
+import { CodeFile } from "../components/Editor/Editor.types";
 
 export const queryFiles = ({
   _path,
@@ -51,10 +52,13 @@ export const getCodeFiles = (lessonId: string, chapterId: string) => {
   });
 };
 
-export const getAnswerFile = (lessonId: string, chapterId: string) => {
+export const getAnswerFile = (
+  lessonId: string,
+  chapterId: string
+): CodeFile | undefined => {
   const _path = `lesson-${lessonId}/chapter-${chapterId}/`;
 
-  return queryFiles({
+  const files = queryFiles({
     _path,
     regex: "answer",
   }).map((file) => {
@@ -66,4 +70,6 @@ export const getAnswerFile = (lessonId: string, chapterId: string) => {
       body,
     };
   });
+
+  return files?.[0];
 };

@@ -4,6 +4,7 @@ export type CodeFile = {
 };
 
 export type EditorProps = {
-  answerFile: CodeFile;
+  answerFile: CodeFile | undefined;
   files: CodeFile[];
+  showAnswer?: boolean;
 };

@@ -10,4 +10,7 @@ export type FooterProps = {
   nextChapter: Chapter;
   currentChapterIndex: number;
   chaptersLength: number;
+  checkAnswer: () => void;
+  showAnswer?: boolean;
+  setShowAnswer: (arg: boolean) => void;
 };

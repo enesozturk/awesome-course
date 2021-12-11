@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 
-import MonacoEditor from "@monaco-editor/react";
+import MonacoEditor, { DiffEditor } from "@monaco-editor/react";
 
 import type { EditorProps, CodeFile } from "./Editor.types";
+import { useEditorContext } from "../../context/hooks";
 
-export default function Editor({ answerFile, files }: EditorProps) {
+const Editor = ({ answerFile, files, showAnswer }: EditorProps) => {
+  const { editorRef } = useEditorContext();
+  const diffEditorRef = React.useRef(null);
+
   const [activeFile, setActiveFile] = useState<CodeFile | undefined>(files[0]);
 
-  const editorRef = React.useRef(null);
-
-  function handleEditorDidMount(editor: any) {
+  const handleEditorDidMount = (editor: any) => {
     editorRef.current = editor;
+  };
+
+  function handleDiffEditorDidMount(editor: any) {
+    diffEditorRef.current = editor;
   }
 
   return (
@@ -44,18 +50,33 @@ export default function Editor({ answerFile, files }: EditorProps) {
         </div>
         <div className="w-full flex-auto flex min-h-0">
           <pre className="w-full flex min-h-full text-xs md:text-sm">
-            <MonacoEditor
-              theme="vs-dark"
-              language="javascript"
-              options={{
-                minimap: { enabled: false },
-              }}
-              value={activeFile?.body || ""}
-              onMount={handleEditorDidMount}
-            />
+            {showAnswer ? (
+              <DiffEditor
+                theme="vs-dark"
+                language="javascript"
+                original={activeFile?.body || ""}
+                modified={answerFile?.body || ""}
+                onMount={handleDiffEditorDidMount}
+                options={{
+                  inDiffEditor: showAnswer,
+                }}
+              />
+            ) : (
+              <MonacoEditor
+                theme="vs-dark"
+                language="javascript"
+                options={{
+                  minimap: { enabled: false },
+                }}
+                value={activeFile?.body || ""}
+                onMount={handleEditorDidMount}
+              />
+            )}
           </pre>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default Editor;
