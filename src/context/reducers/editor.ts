@@ -1,11 +1,15 @@
-export const SET_USER_FILE = "SET_USER_FILE";
+export const SET_FILE_CONTENT = "SET_FILE_CONTENT";
 
-export const editorReducer = (state: any, action: any) => {
+type EditorState = {
+  fileContent: string | undefined;
+};
+
+export const editorReducer = (state: EditorState, action: any) => {
   switch (action.type) {
-    case SET_USER_FILE:
+    case SET_FILE_CONTENT:
       return {
         ...state,
-        userFileContent: action.payload,
+        fileContent: action.payload,
       };
     default:
       return state;

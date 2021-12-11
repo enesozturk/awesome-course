@@ -30,11 +30,10 @@ export default function Chapter({
   currentChapterIndex,
 }: ChapterProps) {
   const [showAnswer, setShowAnswer] = React.useState(false);
-  const { editorRef } = useEditorContext();
+  const { fileContent } = useEditorContext();
 
   const _checkAnswer = () => {
-    const usersAnswer = editorRef.current.getValue();
-    return checkAnswer(usersAnswer, answerFile?.body || "");
+    return checkAnswer(fileContent, answerFile?.body || "");
   };
 
   return (

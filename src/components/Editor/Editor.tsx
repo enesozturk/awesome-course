@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import * as React from "react";
 
 import MonacoEditor, { DiffEditor } from "@monaco-editor/react";
 
@@ -12,22 +12,20 @@ const Editor = ({
   showAnswer,
   fileNameToEdit,
 }: EditorProps) => {
+  const { setFileContent, fileContent } = useEditorContext();
+
   const sortedFiles = sortFiles(files, fileNameToEdit);
+  const fileToEdit = files.filter(
+    (file) => file.fileName === fileNameToEdit
+  )[0];
 
-  const { editorRef } = useEditorContext();
-  const diffEditorRef = React.useRef(null);
-
-  const [activeFile, setActiveFile] = useState<CodeFile | undefined>(
-    sortedFiles[0]
+  const [activeFile, setActiveFile] = React.useState<CodeFile | undefined>(
+    fileToEdit
   );
 
-  const handleEditorDidMount = (editor: any) => {
-    editorRef.current = editor;
-  };
-
-  function handleDiffEditorDidMount(editor: any) {
-    diffEditorRef.current = editor;
-  }
+  React.useEffect(() => {
+    setFileContent(fileToEdit.body);
+  }, []);
 
   return (
     <div className="editor overflow-hidden md:rounded-xl shadow-3xl dark: shadow-xl flex max-h-full bg-gray-900 bg-opacity-90 dark:bg-gray-900 dark:bg-opacity-100">
@@ -69,9 +67,8 @@ const Editor = ({
               <DiffEditor
                 theme="vs-dark"
                 language="javascript"
-                original={editorRef?.current?.getValue() || ""}
+                original={fileContent || ""}
                 modified={answerFile?.body || ""}
-                onMount={handleDiffEditorDidMount}
                 options={{
                   inDiffEditor: showAnswer,
                 }}
@@ -82,9 +79,14 @@ const Editor = ({
                 language="javascript"
                 options={{
                   minimap: { enabled: false },
+                  readOnly: activeFile?.fileName !== fileNameToEdit,
                 }}
-                value={activeFile?.body || ""}
-                onMount={handleEditorDidMount}
+                value={
+                  activeFile?.fileName !== fileNameToEdit
+                    ? activeFile?.body
+                    : fileContent
+                }
+                onChange={setFileContent}
               />
             )}
           </pre>

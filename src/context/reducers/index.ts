@@ -1,1 +1,1 @@
-export { editorReducer, SET_USER_FILE } from "./editor";
+export { editorReducer, SET_FILE_CONTENT } from "./editor";
