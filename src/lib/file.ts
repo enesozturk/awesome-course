@@ -45,7 +45,7 @@ export const getCodeFiles = (lessonId: string, chapterId: string) => {
     const { content: body } = matter(postContent);
 
     return {
-      pageName: path.basename(file),
+      fileName: path.basename(file),
       body,
     };
   });
@@ -62,7 +62,7 @@ export const getAnswerFile = (lessonId: string, chapterId: string) => {
     const { content: body } = matter(postContent);
 
     return {
-      pageName: path.basename(file),
+      fileName: path.basename(file),
       body,
     };
   });

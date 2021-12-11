@@ -20,15 +20,32 @@ export const _getStaticProps = (context: Context) => {
     params: { lessonId, chapterId },
   } = context;
 
+  const chapters = getChapters(parseInt(lessonId));
+  const chapterIndex = chapters.findIndex(
+    (l: { id: number }) => l.id === parseInt(chapterId)
+  );
+
+  const prevChapter = chapters[chapterIndex - 1] || null;
+  const nextChapter = chapters[chapterIndex + 1] || null;
+
   const codeFiles = getCodeFiles(lessonId, chapterId);
   const answerFile = getAnswerFile(lessonId, chapterId);
   const content = renderHtml(lessonId, chapterId);
+
+  const currentLessonId = lessonId;
+  const currentChapterId = chapterId;
 
   return {
     props: {
       answerFile,
       content,
       codeFiles,
+      currentLessonId,
+      currentChapterId,
+      prevChapter,
+      nextChapter,
+      currentChapterIndex: chapterIndex,
+      chaptersLength: chapters.length,
     },
   };
 };

@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
 import MonacoEditor from "@monaco-editor/react";
 
-import type { EditorProps, Page } from "./Editor.props";
+import type { EditorProps, CodeFile } from "./Editor.types";
 
-export default function Editor({ answerFile, pages }: EditorProps) {
-  const [activePage, setActivePage] = useState<Page | undefined>(pages[0]);
+export default function Editor({ answerFile, files }: EditorProps) {
+  const [activeFile, setActiveFile] = useState<CodeFile | undefined>(files[0]);
 
   const editorRef = React.useRef(null);
 
@@ -25,18 +25,18 @@ export default function Editor({ answerFile, pages }: EditorProps) {
         </div>
         <div className="flex-none relative overflow-auto whitespace-nowrap bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-5">
           <ul className="flex text-sm">
-            {pages.map((page, index) => (
+            {files.map((file, index) => (
               <li
                 key={index}
                 className={`flex-none hover:text-white ${
-                  activePage?.pageName === page.pageName
+                  activeFile?.fileName === file.fileName
                     ? `bg-white bg-opacity-10 text-white`
                     : `text-white-40`
                 }`}
-                onClick={() => setActivePage(page)}
+                onClick={() => setActiveFile(file)}
               >
                 <button className="py-2 px-4 font-medium focus:outline-none flex items-center m-0">
-                  {page.pageName}
+                  {file.fileName}
                 </button>
               </li>
             ))}
@@ -50,7 +50,7 @@ export default function Editor({ answerFile, pages }: EditorProps) {
               options={{
                 minimap: { enabled: false },
               }}
-              value={activePage?.body || ""}
+              value={activeFile?.body || ""}
               onMount={handleEditorDidMount}
             />
           </pre>
