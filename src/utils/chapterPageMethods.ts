@@ -30,7 +30,7 @@ export const _getStaticProps = (context: Context) => {
 
   const codeFiles = getCodeFiles(lessonId, chapterId);
   const answerFile = getAnswerFile(lessonId, chapterId);
-  const { title, fileToEdit, body } = renderHtml(lessonId, chapterId);
+  const { title, fileNameToEdit, body } = renderHtml(lessonId, chapterId);
 
   const currentLessonId = lessonId;
   const currentChapterId = chapterId;
@@ -40,7 +40,7 @@ export const _getStaticProps = (context: Context) => {
       title,
       answerFile,
       content: body,
-      fileToEdit,
+      fileNameToEdit,
       codeFiles,
       currentLessonId,
       currentChapterId,

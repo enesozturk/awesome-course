@@ -7,7 +7,7 @@ import { ROOT_PATH } from "./constants";
 
 type ContentProps = {
   title: string;
-  fileToEdit: string;
+  fileNameToEdit: string;
   body: any;
 };
 
@@ -23,7 +23,7 @@ export const renderHtml = (
 
   return {
     title: data?.title || "",
-    fileToEdit: data.fileToEdit || null,
+    fileNameToEdit: data.fileNameToEdit || null,
     body: remark().use(remarkHtml).processSync(content).value,
   };
 };

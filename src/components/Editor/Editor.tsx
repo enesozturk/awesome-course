@@ -6,8 +6,13 @@ import type { EditorProps, CodeFile } from "./Editor.types";
 import { useEditorContext } from "../../context/hooks";
 import { sortFiles } from "../../lib/file";
 
-const Editor = ({ answerFile, files, showAnswer, fileToEdit }: EditorProps) => {
-  const sortedFiles = sortFiles(files, fileToEdit);
+const Editor = ({
+  answerFile,
+  files,
+  showAnswer,
+  fileNameToEdit,
+}: EditorProps) => {
+  const sortedFiles = sortFiles(files, fileNameToEdit);
 
   const { editorRef } = useEditorContext();
   const diffEditorRef = React.useRef(null);
@@ -45,7 +50,7 @@ const Editor = ({ answerFile, files, showAnswer, fileToEdit }: EditorProps) => {
                     : `text-white-40`
                 } ${
                   activeFile?.fileName !== file.fileName &&
-                  file.fileName === fileToEdit
+                  file.fileName === fileNameToEdit
                     ? "text-cyan-200"
                     : ""
                 }`}

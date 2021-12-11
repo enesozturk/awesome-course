@@ -74,9 +74,9 @@ export const getAnswerFile = (
   return files?.[0] || null;
 };
 
-export const sortFiles = (files: CodeFile[], fileToEdit: string) => {
+export const sortFiles = (files: CodeFile[], fileNameToEdit: string) => {
   return files.sort((a: CodeFile, b: CodeFile) => {
-    if (fileToEdit && a.fileName === fileToEdit) {
+    if (fileNameToEdit && a.fileName === fileNameToEdit) {
       return -1;
     } else return 1;
   });

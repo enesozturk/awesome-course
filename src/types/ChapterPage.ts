@@ -5,5 +5,5 @@ export type ChapterProps = {
   answerFile: CodeFile | undefined;
   content: string;
   codeFiles: CodeFile[];
-  fileToEdit: string;
+  fileNameToEdit: string;
 } & FooterProps;

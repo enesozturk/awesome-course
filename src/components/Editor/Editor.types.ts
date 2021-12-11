@@ -6,6 +6,6 @@ export type CodeFile = {
 export type EditorProps = {
   answerFile: CodeFile | undefined;
   files: CodeFile[];
-  fileToEdit: string;
+  fileNameToEdit: string;
   showAnswer?: boolean;
 };
