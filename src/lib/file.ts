@@ -35,6 +35,29 @@ export const getChapters = (lessonId: number) => {
   );
 };
 
+export const getChapterProps = (lessonId: string) => {
+  const chapters = getChapters(parseInt(lessonId));
+  const firstChapter = chapters[0] || null;
+
+  return {
+    firstChapter,
+  };
+};
+
+export const getLessonProps = (lessonId: string) => {
+  const lessons = getLessons();
+  const lessonIndex = lessons.findIndex(
+    (l: { id: number }) => l.id === parseInt(lessonId)
+  );
+  const isLastLesson = lessonIndex === lessons.length - 1;
+  const nextLesson = isLastLesson ? null : lessons[lessonIndex + 1];
+
+  return {
+    nextLesson,
+    isLastLesson,
+  };
+};
+
 export const getCodeFiles = (lessonId: string, chapterId: string) => {
   const _path = `lesson-${lessonId}/chapter-${chapterId}/`;
 
@@ -52,7 +75,7 @@ export const getCodeFiles = (lessonId: string, chapterId: string) => {
   });
 };
 
-export const getAnswerFile = (
+export const getCodeAnswerFile = (
   lessonId: string,
   chapterId: string
 ): CodeFile | null => {

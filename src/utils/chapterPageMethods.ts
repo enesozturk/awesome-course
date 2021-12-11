@@ -8,7 +8,7 @@ export interface Context extends NextPageContext {
 }
 
 import {
-  getAnswerFile,
+  getCodeAnswerFile,
   getChapters,
   getCodeFiles,
   getLessons,
@@ -29,7 +29,7 @@ export const _getStaticProps = (context: Context) => {
   const nextChapter = chapters[chapterIndex + 1] || null;
 
   const codeFiles = getCodeFiles(lessonId, chapterId);
-  const answerFile = getAnswerFile(lessonId, chapterId);
+  const answerFile = getCodeAnswerFile(lessonId, chapterId);
   const { title, fileNameToEdit, body } = renderHtml(lessonId, chapterId);
 
   const currentLessonId = lessonId;

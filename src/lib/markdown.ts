@@ -27,3 +27,37 @@ export const renderHtml = (
     body: remark().use(remarkHtml).processSync(content).value,
   };
 };
+
+type StartPageProps = {
+  title: string;
+  description: string;
+  body: any;
+};
+
+export const getStartFileProps = (lessonId: string): StartPageProps => {
+  const fileContent = fs.readFileSync(
+    `${ROOT_PATH}/lesson-${lessonId}/start.md`
+  );
+
+  const { data, content } = matter(fileContent);
+
+  return {
+    title: data?.title || "",
+    description: data.description || "",
+    body: remark().use(remarkHtml).processSync(content).value,
+  };
+};
+
+export const getCompletedFileProps = (lessonId: string): StartPageProps => {
+  const fileContent = fs.readFileSync(
+    `${ROOT_PATH}/lesson-${lessonId}/completed.md`
+  );
+
+  const { data, content } = matter(fileContent);
+
+  return {
+    title: data?.title || "",
+    description: data.description || "",
+    body: remark().use(remarkHtml).processSync(content).value,
+  };
+};
