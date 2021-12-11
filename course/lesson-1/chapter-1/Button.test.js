@@ -2,10 +2,10 @@ import React from "react";
 
 import { render } from "@testing-library/react";
 
-import Editor from "../Editor";
+import Button from "../Button";
 
-describe("Editor", () => {
+describe("Button", () => {
   it("should render without error", () => {
-    expect(render(<Editor />)).toMatchSnapshot();
+    // Start Here
   });
 });
