@@ -30,15 +30,16 @@ export const _getStaticProps = (context: Context) => {
 
   const codeFiles = getCodeFiles(lessonId, chapterId);
   const answerFile = getAnswerFile(lessonId, chapterId);
-  const content = renderHtml(lessonId, chapterId);
+  const { title, body } = renderHtml(lessonId, chapterId);
 
   const currentLessonId = lessonId;
   const currentChapterId = chapterId;
 
   return {
     props: {
+      title,
       answerFile,
-      content,
+      content: body,
       codeFiles,
       currentLessonId,
       currentChapterId,

@@ -13,6 +13,7 @@ const Editor = dynamic(() => import("../../../../src/components/Editor"), {
 });
 
 export default function Chapter({
+  title,
   answerFile,
   content,
   codeFiles,
@@ -38,7 +39,7 @@ export default function Chapter({
       </main>
       <Footer
         {...{
-          title: "",
+          title: title || "",
           prevChapter,
           nextChapter,
           currentLessonId,
