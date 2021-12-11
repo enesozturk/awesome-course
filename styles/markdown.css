@@ -66,8 +66,13 @@
   @apply font-mono text-sm inline text-blue-500 rounded;
 }
 
+/* monospace */
+.markdown p code {
+  @apply font-mono text-sm inline bg-blue-100 dark:bg-blue-900 text-blue-500 dark:text-blue-200 px-1 py-0.5 rounded;
+}
+
 .markdown pre {
-  @apply bg-gray-100 rounded p-4;
+  @apply bg-gray-100 mb-4 rounded p-4;
 }
 
 .markdown pre code {
@@ -79,7 +84,7 @@
 }
 
 .markdown ol {
-  @apply text-base pl-8 list-decimal;
+  @apply text-base pl-8 mb-4 list-decimal;
 }
 
 .markdown kbd {
@@ -101,4 +106,8 @@
 /* Override pygments style background color. */
 .markdown .highlight pre {
   @apply bg-gray-100 !important;
+}
+
+.markdown hr {
+  @apply text-gray-600 mb-4;
 }
