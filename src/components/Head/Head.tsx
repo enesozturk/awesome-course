@@ -8,25 +8,24 @@ export default function Head() {
       <NextHead>
         <title>Awesome Course</title>
         <meta name="og:title" content={"Awesome Course"} />
-
-        {/* Description */}
+        <meta name="og:url" content="https://awesomecourse.dev" />
         <meta
           name="description"
-          content={
-            "Create awesome courses that lets your audience learn by coding."
-          }
+          content="Create awesome courses that let your audience learn by coding."
         />
         <meta
           name="og:description"
-          content={
-            "Create awesome courses that lets your audience learn by coding."
-          }
+          content="Create awesome courses that let your audience learn by coding."
         />
         <meta name="og:image" content={"awesome-course-og.png"} />
-        <meta name="twitter:image" content={"/awesome-course-og.png"} />
-
-        {/* URL */}
-        <meta name="og:url" content="https://ozturkenes.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="/awesome-course-og.png" />
+        <meta name="twitter:title" content="Awesome Course" />
+        <meta name="twitter:site" content="@enesozt_" />
+        <meta
+          name="twitter:description"
+          content="Create awesome courses that let your audience learn by coding."
+        />
       </NextHead>
     </div>
   );
