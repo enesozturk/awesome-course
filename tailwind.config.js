@@ -15,6 +15,10 @@ module.exports = {
       "2xl": "1536px",
     },
     extend: {
+      backgroundImage: {
+        "keyboard-dark": "url('/keyboard-dark.png')",
+        "keyboard-light": "url('/keyboard-light.png')",
+      },
       minHeight: {
         48: "12rem",
       },
