@@ -5,6 +5,7 @@ import {
   _getStaticProps,
 } from "../../../../src/utils/chapterPageMethods";
 import type { Context } from "../../../../src/utils/chapterPageMethods";
+import Footer from "../../../../src/components/Footer";
 
 const Editor = dynamic(() => import("../../../../src/components/Editor"), {
   ssr: false,
@@ -24,6 +25,7 @@ export default function Home({ answerFile, content, codeFiles }: any) {
           <Editor answerFile={answerFile} pages={codeFiles} />
         </div>
       </main>
+      <Footer />
     </div>
   );
 }
