@@ -24,7 +24,7 @@ const Editor = ({
   );
 
   React.useEffect(() => {
-    setFileContent(fileToEdit.body);
+    setFileContent(fileToEdit?.body);
   }, []);
 
   return (
