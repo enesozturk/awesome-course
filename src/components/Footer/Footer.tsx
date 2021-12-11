@@ -4,6 +4,14 @@ import Link from "next/link";
 import type { FooterProps } from "../../types/Footer";
 import { useEditorContext } from "../../context/hooks";
 
+import QuestionCircleSVG from "../../../public/svg/question-circle.svg";
+import EyeSVG from "../../../public/svg/eye.svg";
+import EyeOffSVG from "../../../public/svg/eye-off.svg";
+import ArrowLeftSVG from "../../../public/svg/arrow-left.svg";
+import ArrowRightSVG from "../../../public/svg/arrow-right.svg";
+
+import { getFooterValues } from "./Footer.utils";
+
 export default function Footer({
   title,
   currentLessonId,
@@ -19,17 +27,30 @@ export default function Footer({
   const isLastChapter = currentChapterIndex === chaptersLength - 1;
   const { fileContent } = useEditorContext();
 
+  const { previouseChapterHref, nextChapterHref, chapterIndicatorText } =
+    getFooterValues({
+      currentLessonId,
+      currentChapterId,
+      prevChapter,
+      nextChapter,
+      currentChapterIndex,
+      chaptersLength,
+    });
+
   return (
     <footer className="footer-container">
-      <div className="flex-1 flex justify-start">
+      <div className="flex-1 flex justify-start hidden sm:flex">
         <div className="p-2 box-border flex items-center justify-center rounded-md font-semibold">
           {title}
         </div>
       </div>
       {fileContent ? (
-        <div className="flex-1 flex justify-center">
+        <div className="flex-1 flex justify-start sm:justify-center">
           <button onClick={checkAnswer} className="button mr-4 button-blue">
-            Check Answer
+            <span className="hidden sm:flex">Check Answer</span>
+            <span className="flex sm:hidden icon">
+              <QuestionCircleSVG />
+            </span>
           </button>
           <button
             onClick={() => {
@@ -37,17 +58,18 @@ export default function Footer({
             }}
             className="button button-amber"
           >
-            {showAnswer ? "Hide Answer" : "Show Answer"}
+            <span className="hidden sm:flex">
+              {showAnswer ? "Hide Answer" : "Show Answer"}
+            </span>
+            <span className="flex sm:hidden icon">
+              {showAnswer ? <EyeSVG /> : <EyeOffSVG />}
+            </span>
           </button>
         </div>
       ) : null}
-      <div className="flex-1 flex justify-end">
+      <div className="flex-1 flex justify-end ml-4">
         <div className="flex">
-          <Link
-            href={`/lesson/${currentLessonId}/chapter/${
-              prevChapter?.id || currentChapterId
-            }`}
-          >
+          <Link href={previouseChapterHref}>
             <a
               className={`p-2 box-border flex items-center justify-center rounded-md
                 ${
@@ -57,25 +79,27 @@ export default function Footer({
                 }
                 `}
             >
-              Previous Chapter
+              <span className="hidden sm:flex">Previous Chapter</span>
+              <span className="flex sm:hidden icon">
+                <ArrowLeftSVG />
+              </span>
             </a>
           </Link>
-          <div className="p-2 mx-4 box-border flex items-center justify-center rounded-md cursor-default">
-            {`${currentChapterIndex + 1} / ${chaptersLength}`}
+          <div className="p-2 mx-4 box-border flex items-center justify-center rounded-md cursor-default whitespace-nowrap">
+            {chapterIndicatorText}
           </div>
-          <Link
-            href={`/lesson/${currentLessonId}/${
-              isLastChapter
-                ? "completed"
-                : `chapter/${nextChapter?.id || currentChapterId}`
-            }`}
-          >
+          <Link href={nextChapterHref}>
             <a
-              className={`button
-              ${isLastChapter ? "button-green" : "button-default"}
-              `}
+              className={`button ${
+                isLastChapter ? "button-green" : "button-default"
+              }`}
             >
-              {isLastChapter ? "Complete Lesson" : "Next Chapter"}
+              <span className="hidden sm:flex">
+                {isLastChapter ? "Complete Lesson" : "Next Chapter"}
+              </span>
+              <span className="flex sm:hidden icon">
+                <ArrowRightSVG />
+              </span>
             </a>
           </Link>
         </div>

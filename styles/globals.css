@@ -50,6 +50,10 @@
     @apply mt-6 text-lg md:text-xl text-gray-600 dark:text-gray-400 text-center max-w-3xl mx-auto;
   }
 
+  .icon path {
+    @apply fill-gray-800 dark:fill-white;
+  }
+
   .app {
     position: fixed;
     top: 0;
