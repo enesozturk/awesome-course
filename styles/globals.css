@@ -12,6 +12,44 @@
 }
 
 @layer components {
+  .button {
+    @apply p-2 box-border flex items-center justify-center rounded-md cursor-pointer;
+  }
+
+  .button-blue {
+    @apply bg-blue-100 hover:bg-blue-200 dark:bg-blue-800 dark:hover:bg-blue-800 dark:bg-opacity-40 dark:hover:bg-opacity-50 text-blue-500 dark:text-blue-400;
+  }
+
+  .button-amber {
+    @apply bg-amber-100 hover:bg-amber-200 dark:bg-amber-800 dark:hover:bg-amber-800 dark:bg-opacity-40 dark:hover:bg-opacity-50 text-amber-500 dark:text-amber-400;
+  }
+
+  .button-green {
+    @apply bg-green-100 hover:bg-green-200 dark:bg-green-800 dark:hover:bg-green-800 dark:bg-opacity-40 dark:hover:bg-opacity-50 text-green-500 dark:text-green-400;
+  }
+
+  .button-default {
+    @apply bg-black dark:bg-white bg-opacity-5 dark:bg-opacity-5 hover:bg-opacity-10 dark:hover:bg-opacity-10;
+  }
+
+  .footer-container {
+    @apply flex justify-between w-full px-8 py-4 box-border bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white;
+  }
+
+  body {
+    @apply bg-white dark:bg-gray-800 text-gray-900 dark:text-white overflow-auto;
+  }
+
+  .start-title,
+  .completed-title {
+    @apply font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center;
+  }
+
+  .start-description,
+  .completed-description {
+    @apply mt-6 text-lg md:text-xl text-gray-600 dark:text-gray-400 text-center max-w-3xl mx-auto;
+  }
+
   .app {
     position: fixed;
     top: 0;

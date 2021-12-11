@@ -20,7 +20,7 @@ export default function Footer({
   const { fileContent } = useEditorContext();
 
   return (
-    <footer className="flex justify-between w-full px-8 py-4 box-border bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white">
+    <footer className="footer-container">
       <div className="flex-1 flex justify-start">
         <div className="p-2 box-border flex items-center justify-center rounded-md font-semibold">
           {title}
@@ -28,17 +28,14 @@ export default function Footer({
       </div>
       {fileContent ? (
         <div className="flex-1 flex justify-center">
-          <button
-            onClick={checkAnswer}
-            className="p-2 box-border bg-blue-100 hover:bg-blue-200 dark:bg-blue-800 dark:hover:bg-blue-800 dark:bg-opacity-40 dark:hover:bg-opacity-50 text-blue-500 dark:text-blue-400 flex items-center justify-center rounded-md cursor-pointer mr-4"
-          >
+          <button onClick={checkAnswer} className="button mr-4 button-blue">
             Check Answer
           </button>
           <button
             onClick={() => {
               setShowAnswer(!showAnswer);
             }}
-            className="p-2 box-border bg-amber-100 hover:bg-amber-200 dark:bg-amber-800 dark:hover:bg-amber-800 dark:bg-opacity-40 dark:hover:bg-opacity-50 text-amber-500 dark:text-amber-400 flex items-center justify-center rounded-md cursor-pointer"
+            className="button button-amber"
           >
             {showAnswer ? "Hide Answer" : "Show Answer"}
           </button>
@@ -56,7 +53,7 @@ export default function Footer({
                 ${
                   !prevChapter
                     ? "text-gray-500 cursor-default"
-                    : "bg-black dark:bg-white bg-opacity-5 dark:bg-opacity-5 hover:bg-opacity-10 dark:hover:bg-opacity-10 cursor-pointer"
+                    : "button-default cursor-pointer"
                 }
                 `}
             >
@@ -74,12 +71,8 @@ export default function Footer({
             }`}
           >
             <a
-              className={`p-2 box-border flex items-center justify-center rounded-md cursor-pointer
-              ${
-                isLastChapter
-                  ? "bg-green-100 hover:bg-green-200 dark:bg-green-800 dark:hover:bg-green-800 dark:bg-opacity-40 dark:hover:bg-opacity-50 text-green-500 dark:text-green-400"
-                  : "bg-black dark:bg-white bg-opacity-5 dark:bg-opacity-5 hover:bg-opacity-10 dark:hover:bg-opacity-10"
-              }
+              className={`button
+              ${isLastChapter ? "button-green" : "button-default"}
               `}
             >
               {isLastChapter ? "Complete Lesson" : "Next Chapter"}

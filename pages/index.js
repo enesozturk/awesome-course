@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="app bg-white dark:bg-gray-800 text-gray-900 dark:text-white overflow-auto">
+    <div className="page">
       <main className="flex flex-col items-center relative relative max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32 mb-16 px-4">
         <div
           className="h-48 sm:h-96 w-full max-h-96 mb-8 
