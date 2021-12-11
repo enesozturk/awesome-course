@@ -55,7 +55,7 @@ export const getCodeFiles = (lessonId: string, chapterId: string) => {
 export const getAnswerFile = (
   lessonId: string,
   chapterId: string
-): CodeFile | undefined => {
+): CodeFile | null => {
   const _path = `lesson-${lessonId}/chapter-${chapterId}/`;
 
   const files = queryFiles({
@@ -71,7 +71,7 @@ export const getAnswerFile = (
     };
   });
 
-  return files?.[0];
+  return files?.[0] || null;
 };
 
 export const sortFiles = (files: CodeFile[], fileToEdit: string) => {

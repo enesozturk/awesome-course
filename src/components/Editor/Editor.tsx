@@ -64,7 +64,7 @@ const Editor = ({ answerFile, files, showAnswer, fileToEdit }: EditorProps) => {
               <DiffEditor
                 theme="vs-dark"
                 language="javascript"
-                original={activeFile?.body || ""}
+                original={editorRef?.current?.getValue() || ""}
                 modified={answerFile?.body || ""}
                 onMount={handleDiffEditorDidMount}
                 options={{

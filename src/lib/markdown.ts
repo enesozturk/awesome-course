@@ -20,7 +20,6 @@ export const renderHtml = (
   );
 
   const { data, content } = matter(fileContent);
-  console.log(data);
 
   return {
     title: data?.title || "",
