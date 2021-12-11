@@ -5,13 +5,16 @@ import remarkHtml from "remark-html";
 
 import { ROOT_PATH } from "./constants";
 
+type ContentProps = {
+  title: string;
+  fileToEdit: string;
+  body: any;
+};
+
 export const renderHtml = (
   lessonId: string,
   chapterId: string
-): {
-  title: string;
-  body: any;
-} => {
+): ContentProps => {
   const fileContent = fs.readFileSync(
     `${ROOT_PATH}/lesson-${lessonId}/chapter-${chapterId}/readme.md`
   );
@@ -21,6 +24,7 @@ export const renderHtml = (
 
   return {
     title: data?.title || "",
+    fileToEdit: data.fileToEdit || null,
     body: remark().use(remarkHtml).processSync(content).value,
   };
 };

@@ -1,5 +1,6 @@
 ---
 title: Fundamentals of Testing in JavaScript
+fileToEdit: Editor.test.js
 ---
 
 ### Chapter 1: Hello World!

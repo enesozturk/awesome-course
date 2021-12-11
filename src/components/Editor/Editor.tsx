@@ -4,12 +4,17 @@ import MonacoEditor, { DiffEditor } from "@monaco-editor/react";
 
 import type { EditorProps, CodeFile } from "./Editor.types";
 import { useEditorContext } from "../../context/hooks";
+import { sortFiles } from "../../lib/file";
 
-const Editor = ({ answerFile, files, showAnswer }: EditorProps) => {
+const Editor = ({ answerFile, files, showAnswer, fileToEdit }: EditorProps) => {
+  const sortedFiles = sortFiles(files, fileToEdit);
+
   const { editorRef } = useEditorContext();
   const diffEditorRef = React.useRef(null);
 
-  const [activeFile, setActiveFile] = useState<CodeFile | undefined>(files[0]);
+  const [activeFile, setActiveFile] = useState<CodeFile | undefined>(
+    sortedFiles[0]
+  );
 
   const handleEditorDidMount = (editor: any) => {
     editorRef.current = editor;
@@ -31,13 +36,18 @@ const Editor = ({ answerFile, files, showAnswer }: EditorProps) => {
         </div>
         <div className="flex-none relative overflow-auto whitespace-nowrap bg-black dark:bg-white bg-opacity-10 dark:bg-opacity-5">
           <ul className="flex text-sm">
-            {files.map((file, index) => (
+            {sortedFiles.map((file, index) => (
               <li
                 key={index}
                 className={`flex-none hover:text-white ${
                   activeFile?.fileName === file.fileName
                     ? `bg-white bg-opacity-10 text-white`
                     : `text-white-40`
+                } ${
+                  activeFile?.fileName !== file.fileName &&
+                  file.fileName === fileToEdit
+                    ? "text-cyan-200"
+                    : ""
                 }`}
                 onClick={() => setActiveFile(file)}
               >

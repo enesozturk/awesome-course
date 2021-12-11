@@ -20,6 +20,7 @@ export default function Chapter({
   title,
   answerFile,
   content,
+  fileToEdit,
   codeFiles,
   prevChapter,
   nextChapter,
@@ -51,6 +52,7 @@ export default function Chapter({
             {...{
               answerFile,
               showAnswer,
+              fileToEdit,
             }}
           />
         </div>
