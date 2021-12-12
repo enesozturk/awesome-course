@@ -2,11 +2,11 @@
 
 Create awesome courses that let your audience learn by coding.
 
-#### Why?
+### Why?
 
-Bir geliştirici olarak, yeni bir yazılım teknolojisini öğrenmek için çoğunlukla onunla ilgili bir belge okumaya başlarız. Başlamak güzel. Ardından ileri düzey konular için başka kaynaklar bulmaya çalışıyoruz ve video kursları izliyoruz. Video kursları zaman kaybı olabilir. Bir şeyler öğrenmek için ellerimizi kirletmemiz gerekir; kod. **Awesome Course, herhangi bir kursu doğrudan kodlayarak öğrenmenize olanak tanır.**
+As a developer, to learn a new software technology, we mostly start reading a document about it. Good to start. Then we are trying to find other resources for advanced topics and watch video courses. Video courses might be wasting time. To learn something, we need to get our hands dirty; code. **Awesome Course lets you learn any course by coding directly.**
 
-Bir içerik oluşturucu olarak video kursları hazırlamak yorucudur. Çekim, kurgu, kamera, mikrofon, tüm detaylar bunda iyi olmak için önemlidir. Kitlenizin içeriğinizden öğrenmesini gerçekten önemsiyor musunuz? **Harika Kurs, hedef kitlenizin kodlayarak öğreneceği kurslar oluşturmanıza olanak tanır.**
+As a content creator, making video courses is exhausting. Filming, editing, camera, microphone, all the details are important to be good at that. Do you really care that your audience learns from your content? **Awesome Course let you create courses that your audience learn by coding.**
 
 #### Example Course
 
