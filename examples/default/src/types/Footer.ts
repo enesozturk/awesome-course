@@ -15,4 +15,5 @@ export type FooterProps = {
   setShowAnswer: (arg: boolean) => void;
   toggleShowDocument: () => void;
   showDocument: boolean;
+  isFailed: boolean;
 };

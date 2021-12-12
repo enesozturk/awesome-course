@@ -28,6 +28,7 @@ export default function Footer({
   setShowAnswer,
   toggleShowDocument,
   showDocument,
+  isFailed,
 }: FooterProps) {
   const isLastChapter = currentChapterIndex === chaptersLength - 1;
   const { fileContent } = useEditorContext();
@@ -53,24 +54,28 @@ export default function Footer({
       {fileContent ? (
         <div className="flex-1 flex justify-start md:justify-center">
           <button onClick={checkAnswer} className="mr-4 button button-blue">
-            <span className="hidden md:flex">Check Answer</span>
+            <span className="hidden md:flex">
+              {isFailed ? "Try Again" : "Check Answer"}
+            </span>
             <span className="flex md:hidden icon">
               <QuestionCircleSVG />
             </span>
           </button>
-          <button
-            onClick={() => {
-              setShowAnswer(!showAnswer);
-            }}
-            className="mr-4 button button-amber"
-          >
-            <span className="hidden md:flex">
-              {showAnswer ? "Hide Answer" : "Show Answer"}
-            </span>
-            <span className="flex md:hidden icon">
-              {showAnswer ? <EyeSVG /> : <EyeOffSVG />}
-            </span>
-          </button>
+          {isFailed ? (
+            <button
+              onClick={() => {
+                setShowAnswer(!showAnswer);
+              }}
+              className="mr-4 button button-amber"
+            >
+              <span className="hidden md:flex">
+                {showAnswer ? "Hide Answer" : "Show Answer"}
+              </span>
+              <span className="flex md:hidden icon">
+                {showAnswer ? <EyeSVG /> : <EyeOffSVG />}
+              </span>
+            </button>
+          ) : null}
           <button
             onClick={toggleShowDocument}
             className="button button-default flex md:hidden"

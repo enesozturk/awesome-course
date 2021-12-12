@@ -31,10 +31,12 @@ export default function Chapter({
 }: ChapterProps) {
   const [showAnswer, setShowAnswer] = React.useState(false);
   const [showDocument, setShowDocument] = React.useState(true);
+  const [isFailed, setIsFailed] = React.useState(false);
   const { fileContent } = useEditorContext();
 
   const _checkAnswer = () => {
-    return checkAnswer(fileContent, answerFile?.body || "");
+    const isCorrect = checkAnswer(fileContent, answerFile?.body || "");
+    setIsFailed(!isCorrect);
   };
 
   const _toggleShowDocument = () => {
@@ -43,6 +45,7 @@ export default function Chapter({
 
   React.useEffect(() => {
     setShowDocument(true);
+    setIsFailed(false);
   }, [currentChapterId]);
 
   return (
@@ -87,6 +90,7 @@ export default function Chapter({
           setShowAnswer,
           toggleShowDocument: _toggleShowDocument,
           showDocument,
+          isFailed,
         }}
       />
     </div>
