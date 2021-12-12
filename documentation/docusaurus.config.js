@@ -8,14 +8,68 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "Awesome Course",
   tagline: "Create awesome courses that let your audience learn by coding.",
-  url: "https://awesomecourse.dev",
-  baseUrl: "/",
+  url: "https://enesozturk.github.io",
+  organizationName: "enesozturk",
+  projectName: "awesome-course",
+  baseUrl: "/awesome-course/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
-
+  deploymentBranch: "gh-pages",
+  themeConfig: {
+    navbar: {
+      title: "Awesome Course",
+      items: [
+        { to: "/blog", label: "Blog", position: "left" },
+        {
+          href: "https://github.com/enesozturk/awesome-course",
+          label: "GitHub",
+          position: "right",
+        },
+      ],
+    },
+    footer: {
+      style: "dark",
+      links: [
+        {
+          title: "Docs",
+          items: [
+            {
+              label: "Documents",
+              to: "/",
+            },
+          ],
+        },
+        {
+          title: "Community",
+          items: [
+            {
+              label: "Twitter",
+              href: "https://twitter.com/enesozt_",
+            },
+          ],
+        },
+        {
+          title: "More",
+          items: [
+            {
+              label: "Blog",
+              to: "/blog",
+            },
+            {
+              label: "GitHub",
+              href: "https://github.com/enesozturk",
+            },
+          ],
+        },
+      ],
+      copyright: `Copyright © ${new Date().getFullYear()} Enes Öztürk.`,
+    },
+    prism: {
+      theme: lightCodeTheme,
+      darkTheme: darkCodeTheme,
+    },
+  },
   presets: [
     [
       "@docusaurus/preset-classic",
@@ -37,71 +91,6 @@ const config = {
       },
     ],
   ],
-
-  themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    {
-      navbar: {
-        title: "Awesome Course",
-        items: [
-          { to: "/blog", label: "Blog", position: "left" },
-          {
-            href: "https://github.com/facebook/docusaurus",
-            label: "GitHub",
-            position: "right",
-          },
-        ],
-      },
-      footer: {
-        style: "dark",
-        links: [
-          {
-            title: "Docs",
-            items: [
-              {
-                label: "Documents",
-                to: "/",
-              },
-            ],
-          },
-          {
-            title: "Community",
-            items: [
-              {
-                label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus",
-              },
-              {
-                label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
-              },
-              {
-                label: "Twitter",
-                href: "https://twitter.com/docusaurus",
-              },
-            ],
-          },
-          {
-            title: "More",
-            items: [
-              {
-                label: "Blog",
-                to: "/blog",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
-      },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-      },
-    },
 };
 
 module.exports = config;
