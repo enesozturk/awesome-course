@@ -6,10 +6,9 @@ import { cleanupSync } from "temp";
 
 import { copySync } from "fs-extra";
 
-import { execSync } from "child_process";
-
 import * as logs from "@utils/logs";
 import { program } from "@utils/program";
+import { installPackages } from "@utils/install";
 
 (async (): Promise<void> => {
   clear();
@@ -33,7 +32,7 @@ import { program } from "@utils/program";
 
   logs.installingPackages();
 
-  execSync(`cd ${projectPath} && npm install`);
+  installPackages(projectPath);
 
   logs.finish({
     projectName,
