@@ -2,9 +2,8 @@ import * as React from "react";
 
 import MonacoEditor, { DiffEditor } from "@monaco-editor/react";
 
-import type { EditorProps, CodeFile } from "./Editor.types";
-import { useEditorContext } from "../../context/hooks";
-import { sortFiles } from "../../lib/file";
+import type { EditorProps } from "./Editor.types";
+import { useEditor } from "./Editor.hooks";
 
 const Editor = ({
   answerFile,
@@ -12,20 +11,16 @@ const Editor = ({
   showAnswer,
   fileNameToEdit,
 }: EditorProps) => {
-  const { setFileContent, fileContent } = useEditorContext();
-
-  const sortedFiles = sortFiles(files, fileNameToEdit);
-  const fileToEdit = files.filter(
-    (file) => file.fileName === fileNameToEdit
-  )[0];
-
-  const [activeFile, setActiveFile] = React.useState<CodeFile | undefined>(
-    fileToEdit
-  );
-
-  React.useEffect(() => {
-    setFileContent(fileToEdit?.body);
-  }, [files]);
+  const {
+    activeFile,
+    setActiveFile,
+    sortedFiles,
+    fileContent,
+    setFileContent,
+  } = useEditor({
+    files,
+    fileNameToEdit,
+  });
 
   return (
     <div className="editor">
