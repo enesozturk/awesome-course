@@ -4,6 +4,9 @@
 
 @import "./markdown.css";
 
+@import "./highlight-light.css";
+@import "./highlight-dark.css" screen and (prefers-color-scheme: dark);
+
 @layer utilities {
   .py-05 {
     padding-top: 0.125rem;
