@@ -12,9 +12,14 @@ As a content creator, making video courses is exhausting. Filming, editing, came
 
 Want to see how does Awesome Course work? Try my demo [Testing JavaScript](https://www.awesomecourse.dev/lesson/1) course.
 
+### Getting Started
+
+Want to create an Awesome Course? Check out [the documentation website](https://enesozturk.github.io/awesome-course/).
+
 ### Features
 
-- Ready to use without development 🚀
+- [React](https://reactjs.org/) & [Next.js](https://nextjs.org/) based framework
+- Ready to use with minimum development 🚀
 - Supports dark/light mode 🌗
 - Written in TypeScript
 
@@ -34,10 +39,6 @@ Want to see how does Awesome Course work? Try my demo [Testing JavaScript](https
 
 - [ ] Authorization to create courses online
 - [ ] Marketplace to list and share courses
-
-### Getting Started
-
-Want to create an Awesome Course? Check out [the documentation website]().
 
 ### LICENCE
 

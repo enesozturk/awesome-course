@@ -25,7 +25,7 @@ export default function Home() {
               See on Github
             </a>
           </Link>
-          <Link href="lesson/1/chapter/1">
+          <Link href="lesson/1">
             <a className="mt-6 bg-white dark:bg-gray-800 hover:bg-gray-100 hover:dark:bg-gray-700 py-4 px-6 rounded-md border border-gray-600 text-gray-800 dark:text-white">
               Example Course
             </a>
