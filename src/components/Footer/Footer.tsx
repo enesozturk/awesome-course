@@ -11,6 +11,7 @@ import ArrowLeftSVG from "../../../public/svg/arrow-left.svg";
 import ArrowRightSVG from "../../../public/svg/arrow-right.svg";
 import DocumentSVG from "../../../public/svg/document.svg";
 import CodeFileSVG from "../../../public/svg/code-file.svg";
+import CheckSVG from "../../../public/svg/check.svg";
 
 import { getFooterValues } from "./Footer.utils";
 
@@ -33,6 +34,7 @@ export default function Footer({
 
   const { previouseChapterHref, nextChapterHref, chapterIndicatorText } =
     getFooterValues({
+      isLastChapter,
       currentLessonId,
       currentChapterId,
       prevChapter,
@@ -77,7 +79,7 @@ export default function Footer({
               {showDocument ? "Show Document" : "Show Code"}
             </span>
             <span className="flex md:hidden icon">
-              {showDocument ? <DocumentSVG /> : <CodeFileSVG />}
+              {showDocument ? <CodeFileSVG /> : <DocumentSVG />}
             </span>
           </button>
         </div>
@@ -113,7 +115,7 @@ export default function Footer({
                 {isLastChapter ? "Complete Lesson" : "Next Chapter"}
               </span>
               <span className="flex md:hidden icon">
-                <ArrowRightSVG />
+                {isLastChapter ? <CheckSVG /> : <ArrowRightSVG />}
               </span>
             </a>
           </Link>

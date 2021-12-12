@@ -30,7 +30,7 @@ export default function Chapter({
   currentChapterIndex,
 }: ChapterProps) {
   const [showAnswer, setShowAnswer] = React.useState(false);
-  const [showDocument, setShowDocument] = React.useState(false);
+  const [showDocument, setShowDocument] = React.useState(true);
   const { fileContent } = useEditorContext();
 
   const _checkAnswer = () => {
@@ -40,6 +40,10 @@ export default function Chapter({
   const _toggleShowDocument = () => {
     setShowDocument(!showDocument);
   };
+
+  React.useEffect(() => {
+    setShowDocument(true);
+  }, [currentChapterId]);
 
   return (
     <div className="app">
