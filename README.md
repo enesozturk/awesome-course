@@ -1,4 +1,4 @@
-![awesome-course-og](./public/awesome-course-og.png)
+![awesome-course-og](./examples/default/public/awesome-course-og.png)
 
 Create awesome courses that let your audience learn by coding.
 
@@ -22,6 +22,7 @@ Want to see how does Awesome Course work? Try my demo [Testing JavaScript](https
 
 - [x] Start and Completed pages
 - [x] Responsiveness for course detail pages
+- [x] CLI support to easly create an awesome course
 - [ ] Overview page to see all lessons and chapters
 - [ ] Documentation with Docusaurus
 - [ ] Demo course - TDD with React
@@ -29,13 +30,14 @@ Want to see how does Awesome Course work? Try my demo [Testing JavaScript](https
 - [ ] Multi language for courses
 - [ ] Settings for customize workspace UI (such as editor theme etc.)
 
+### Ideas
+
+- [ ] Authorization to create courses online
+- [ ] Marketplace to list and share courses
+
 ### Getting Started
 
 Want to create an Awesome Course? Check out [the documentation website]().
-
-### Contribute
-
-Want to contribute to Awesome Course? Check out [CONTRIBUTE.md](./CONTRIBUTE.md).
 
 ### LICENCE
 
