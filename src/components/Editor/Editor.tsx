@@ -28,7 +28,7 @@ const Editor = ({
   }, []);
 
   return (
-    <div className="editor overflow-hidden md:rounded-xl shadow-3xl dark: shadow-xl flex max-h-full bg-gray-900 bg-opacity-90 dark:bg-gray-900 dark:bg-opacity-100">
+    <div className="editor">
       <div className="w-full flex flex-col rounded-2xl">
         <div className="flex-none h-11 flex items-center px-4 border-b border-white-20 dark:border-dark-20">
           <div className="flex space-x-1.5">

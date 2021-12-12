@@ -67,10 +67,7 @@
   }
 
   .editor {
-    position: absolute;
-    width: calc(100% / 2 - 4rem);
-    height: calc(100% - 4rem);
-    right: 2rem;
+    @apply flex overflow-hidden rounded-lg md:rounded-xl shadow-2xl dark:shadow-xl max-h-full bg-gray-900 bg-opacity-90 dark:bg-gray-900 dark:bg-opacity-100 h-full w-full;
   }
 }
 

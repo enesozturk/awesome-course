@@ -30,22 +30,35 @@ export default function Chapter({
   currentChapterIndex,
 }: ChapterProps) {
   const [showAnswer, setShowAnswer] = React.useState(false);
+  const [showDocument, setShowDocument] = React.useState(false);
   const { fileContent } = useEditorContext();
 
   const _checkAnswer = () => {
     return checkAnswer(fileContent, answerFile?.body || "");
   };
 
+  const _toggleShowDocument = () => {
+    setShowDocument(!showDocument);
+  };
+
   return (
     <div className="app">
       <main className="flex-1 flex bg-white dark:bg-gray-800 text-gray-900 dark:text-white relative overflow-scroll">
-        <div className="flex-1 p-8 pb-0 box-border overflow-scroll markdown">
+        <div
+          className={`flex-1 p-8 pb-0 box-border overflow-scroll markdown ${
+            !showDocument ? "hidden md:flex" : ""
+          }`}
+        >
           <div
             className="pb-12"
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </div>
-        <div className="flex-1 p-8 box-border overflow-hidden">
+        <div
+          className={`flex-1 p-4 md:p-8 box-border overflow-hidden relative ${
+            showDocument ? "hidden md:flex" : ""
+          }`}
+        >
           <Editor
             files={codeFiles}
             {...{
@@ -68,6 +81,8 @@ export default function Chapter({
           checkAnswer: _checkAnswer,
           showAnswer,
           setShowAnswer,
+          toggleShowDocument: _toggleShowDocument,
+          showDocument,
         }}
       />
     </div>

@@ -9,6 +9,8 @@ import EyeSVG from "../../../public/svg/eye.svg";
 import EyeOffSVG from "../../../public/svg/eye-off.svg";
 import ArrowLeftSVG from "../../../public/svg/arrow-left.svg";
 import ArrowRightSVG from "../../../public/svg/arrow-right.svg";
+import DocumentSVG from "../../../public/svg/document.svg";
+import CodeFileSVG from "../../../public/svg/code-file.svg";
 
 import { getFooterValues } from "./Footer.utils";
 
@@ -23,6 +25,8 @@ export default function Footer({
   checkAnswer,
   showAnswer,
   setShowAnswer,
+  toggleShowDocument,
+  showDocument,
 }: FooterProps) {
   const isLastChapter = currentChapterIndex === chaptersLength - 1;
   const { fileContent } = useEditorContext();
@@ -39,16 +43,16 @@ export default function Footer({
 
   return (
     <footer className="footer-container">
-      <div className="flex-1 flex justify-start hidden sm:flex">
+      <div className="flex-1 flex justify-start hidden md:flex">
         <div className="p-2 box-border flex items-center justify-center rounded-md font-semibold">
           {title}
         </div>
       </div>
       {fileContent ? (
-        <div className="flex-1 flex justify-start sm:justify-center">
-          <button onClick={checkAnswer} className="button mr-4 button-blue">
-            <span className="hidden sm:flex">Check Answer</span>
-            <span className="flex sm:hidden icon">
+        <div className="flex-1 flex justify-start md:justify-center">
+          <button onClick={checkAnswer} className="mr-4 button button-blue">
+            <span className="hidden md:flex">Check Answer</span>
+            <span className="flex md:hidden icon">
               <QuestionCircleSVG />
             </span>
           </button>
@@ -56,13 +60,24 @@ export default function Footer({
             onClick={() => {
               setShowAnswer(!showAnswer);
             }}
-            className="button button-amber"
+            className="mr-4 button button-amber"
           >
-            <span className="hidden sm:flex">
+            <span className="hidden md:flex">
               {showAnswer ? "Hide Answer" : "Show Answer"}
             </span>
-            <span className="flex sm:hidden icon">
+            <span className="flex md:hidden icon">
               {showAnswer ? <EyeSVG /> : <EyeOffSVG />}
+            </span>
+          </button>
+          <button
+            onClick={toggleShowDocument}
+            className="button button-default flex md:hidden"
+          >
+            <span className="hidden sm:flex mr-2">
+              {showDocument ? "Show Document" : "Show Code"}
+            </span>
+            <span className="flex md:hidden icon">
+              {showDocument ? <DocumentSVG /> : <CodeFileSVG />}
             </span>
           </button>
         </div>
@@ -79,8 +94,8 @@ export default function Footer({
                 }
                 `}
             >
-              <span className="hidden sm:flex">Previous Chapter</span>
-              <span className="flex sm:hidden icon">
+              <span className="hidden md:flex">Previous Chapter</span>
+              <span className="flex md:hidden icon">
                 <ArrowLeftSVG />
               </span>
             </a>
@@ -94,10 +109,10 @@ export default function Footer({
                 isLastChapter ? "button-green" : "button-default"
               }`}
             >
-              <span className="hidden sm:flex">
+              <span className="hidden md:flex">
                 {isLastChapter ? "Complete Lesson" : "Next Chapter"}
               </span>
-              <span className="flex sm:hidden icon">
+              <span className="flex md:hidden icon">
                 <ArrowRightSVG />
               </span>
             </a>
