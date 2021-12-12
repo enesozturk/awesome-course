@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Awesome Course Blog</title>
+        <link>https://enesozturk.github.io/awesome-course/blog</link>
+        <description>Awesome Course Blog</description>
+        <lastBuildDate>Sun, 12 Dec 2021 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Awesome Course is Here!]]></title>
+            <link>https://enesozturk.github.io/awesome-course/blog/awesome-course-is-here</link>
+            <guid>awesome-course-is-here</guid>
+            <pubDate>Sun, 12 Dec 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[It is a great feeling that I almost finished the Awesome Course in 2 days. It happened in a hackathon. Now it is alive 🔥]]></description>
+            <content:encoded><![CDATA[<blockquote><p>It is a great feeling that I almost finished the Awesome Course in 2 days. It happened in a <a href="https://ucbuyucuturnuvasi.com/">hackathon</a>. Now it is alive 🔥</p></blockquote><p>I want to tell you why I built such a project. Recently, I was learning blockchain programming. There is a platform that teaches you Solidity. But not like the general way. We all the time learn something by watching videos, reading documents, articles. Searching issues etc. All these things are time-wasting. What if we are able to learn any software technology by reading and writing at the same time? Testing ourselves step by step is valuable.</p><p>That is why I created <strong>Awesome Course.</strong></p><h3>What does Awesome Course provide?</h3><p>We can think this in two ways:</p><ul><li><p>As a developer, to learn a new software technology, we mostly start reading a document about it. Good to start. Then we are trying to find other resources for advanced topics and watch video courses. Video courses might be wasting time. To learn something, we need to get our hands dirty; code. <strong>Awesome Course lets you learn any course by coding directly.</strong></p></li><li><p>As a content creator, making video courses is exhausting. Filming, editing, camera, microphone, all the details are important to be good at that. Do you really care that your audience learns from your content? <strong>Awesome Course let you create courses that your audience learn by coding.</strong></p></li></ul><h3>Tech Stack</h3><ul><li><a href="https://nextjs.org/">Next.js</a> as framework. Server-side rendering is really great fit for this project.</li><li><a href="https://tailwindcss.com/">Tailwind</a> for styling</li><li>Typescript</li></ul><h3>Give Your Support</h3><p>I really appreciate it if you give your support on <a href="https://github.com/enesozturk/awesome-course">Github</a>.</p>]]></content:encoded>
+        </item>
+    </channel>
+</rss>

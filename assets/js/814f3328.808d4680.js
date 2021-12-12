@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocumentation=self.webpackChunkdocumentation||[]).push([[535],{5641:function(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Awesome Course is Here!","permalink":"/awesome-course/blog/awesome-course-is-here"}]}')}}]);
