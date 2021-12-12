@@ -15,10 +15,10 @@ Create awesome courses that let your audience learn by coding.
 ### Todo
 
 [x] Start and Completed pages
+[x] Responsiveness for course detail pages
 [] Overview page to see all lessons and chapters
 [] Documentation with Docusaurus
 [] Demo course - TDD with React
-[] Responsiveness for course detail pages
 [] New sections on landing page
 [] Multi language for courses
 [] Settings for customize workspace UI (such as editor theme etc.)
