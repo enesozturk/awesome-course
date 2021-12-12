@@ -1,10 +1,16 @@
-# Awesome Course
-
 ![awesome-course-og](./public/awesome-course-og.png)
 
 Create awesome courses that let your audience learn by coding.
 
-> Paid your attention? Let me explain it a little bit more: As a developer, when we want to learn a new software technology, especially beginners, we mostly start reading documents of it, good to start, then guess what? Yes, we are trying to find other resources for advanced topics. Aaand we find video courses. Aahhh! Video courses are looots of wasting time. And time is priceless. We need to start coding to learn it, not just watching or reading. Any course created with Awesome Course lets us read the doc on the left and write the code on the right side to test ourselves. Here is what it needs to be.
+#### Why?
+
+Bir geliştirici olarak, yeni bir yazılım teknolojisini öğrenmek için çoğunlukla onunla ilgili bir belge okumaya başlarız. Başlamak güzel. Ardından ileri düzey konular için başka kaynaklar bulmaya çalışıyoruz ve video kursları izliyoruz. Video kursları zaman kaybı olabilir. Bir şeyler öğrenmek için ellerimizi kirletmemiz gerekir; kod. **Awesome Course, herhangi bir kursu doğrudan kodlayarak öğrenmenize olanak tanır.**
+
+Bir içerik oluşturucu olarak video kursları hazırlamak yorucudur. Çekim, kurgu, kamera, mikrofon, tüm detaylar bunda iyi olmak için önemlidir. Kitlenizin içeriğinizden öğrenmesini gerçekten önemsiyor musunuz? **Harika Kurs, hedef kitlenizin kodlayarak öğreneceği kurslar oluşturmanıza olanak tanır.**
+
+#### Example Course
+
+Want to see how does Awesome Course work? Try my small [Testing JavaScript](https://www.awesomecourse.dev/lesson/1/chapter/1) course
 
 ### Features
 
@@ -25,7 +31,11 @@ Create awesome courses that let your audience learn by coding.
 
 ### Getting Started
 
-Check out [the documentation website]().
+Want to create an Awesome Course? Check out [the documentation website]().
+
+### Contribute
+
+Want to contribute to Awesome Course? Check out [the documentation website]().
 
 ### LICENCE
 
