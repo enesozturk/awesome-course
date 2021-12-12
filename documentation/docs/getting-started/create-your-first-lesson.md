@@ -18,11 +18,11 @@ Lets start by creating our first chapter. In `/course/lesson-3/chapter-3/` (beca
 
 Also, there are some props that you will need to use.
 
-### Configure Markdown Details
+### Configure Markdown Metadata
 
 Markdown documents have metadata at the top called [Front Matter](https://jekyllrb.com/docs/front-matter/).
 
-Awesome Course automatically gets these data to show current chapter title on footer and watch true file for code editor.
+Awesome Course automatically gets these data to show current chapter title on footer and watch question file for code editor.
 
 Add metadata like below to your top of markdown files:
 
@@ -37,7 +37,21 @@ fileNameToEdit: Button.test.js
 Rest of your markdown...
 ```
 
-### Props
+If you editing `start.md` or `completed.md` files, you will need to provide a `description` also:
 
-- `title`: Title is used to show user which chapter they are in footer and other places.
-- `fileNameToEdit`: Indicates the code file will be edited for the answer. There might be many file in your chapter but only one of them should be edited.
+```md title="course/lesson-3/chapter-3/readme.md" {1-4}
+---
+title: Welcome to Awesome Course!
+description: Here you will be able to learn this great new technology by coding!
+---
+
+In this lesson...
+```
+
+### Metadata Props
+
+| Syntax         | Description                                                                                                                            | Required                                          |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| title          | Title is used to show user which chapter they are in footer, start and completed pages.                                                | Yes                                               |
+| description    | Description is used to show in start and completed pages.                                                                              | If on start or completed page, yes, otherwise not |
+| fileNameToEdit | Indicates the code file will be edited for the answer. There might be many file in your chapter but only one of them should be edited. | If on chapter page, yes, otherwise not            |

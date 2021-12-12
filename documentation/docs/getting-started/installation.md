@@ -39,15 +39,18 @@ reac-training
 │   ├── lesson-1
 │   ├───── start.md
 │   ├───── completed.md
-│   ├───── chapter-1.md
-│   ├───── chapter-2.md
-│   ├───── chapter-3.md
+│   ├───── chapter-1
+│   ├─────── answer.js
+│   ├─────── question.js
+│   ├─────── readme.md
+│   ├───── chapter-2
+│   ├───── chapter-3
 │   ├── lesson-2
 │   ├───── start.md
 │   ├───── completed.md
-│   ├───── chapter-1.md
-│   ├───── chapter-2.md
-│   ├───── chapter-3.md
+│   ├───── chapter-1
+│   ├───── chapter-2
+│   ├───── chapter-3
 ├── pages
 │   ├── lesson
 │   ├──── [lessonId]

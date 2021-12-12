@@ -18,16 +18,16 @@ Create awesome courses that let your audience learn by coding.
 
 Want to see how does Awesome Course work? Try my demo [Testing JavaScript](https://www.awesomecourse.dev/lesson/1) course.
 
+#### Getting Started
+
+Want to create an Awesome Course? Check out **[installation](/getting-started/installation)** page.
+
 ## 🪄 Features
 
 - [React](https://reactjs.org/) & [Next.js](https://nextjs.org/) based framework
 - Ready to use with minimum development 🚀
 - Supports dark/light mode 🌗
 - Written in TypeScript
-
-Get started by **creating a new site**.
-
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
 
 ### ☑️ Todo
 
