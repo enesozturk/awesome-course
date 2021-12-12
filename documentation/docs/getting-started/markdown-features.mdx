@@ -30,14 +30,14 @@ Markdown text with [links](./hello.md)
 Regular Markdown links are supported, using url paths or relative file paths.
 
 ```md
-Let's see how to [Create a page](/create-a-page).
+Let's see how to [Create a page](/create-a-course-content.md).
 ```
 
 ```md
-Let's see how to [Create a page](./create-a-page.md).
+Let's see how to [Create a page](./create-a-course-content.md).
 ```
 
-**Result:** Let's see how to [Create a page](./create-a-page.md).
+**Result:** Let's see how to [Create a page](./create-a-course-content.md).
 
 ## Images
 
@@ -123,18 +123,19 @@ This is <Highlight color="#25c2a0">Docusaurus green</Highlight> !
 This is <Highlight color="#1877F2">Facebook blue</Highlight> !
 ```
 
-export const Highlight = ({children, color}) => (
+export const Highlight = ({ children, color }) => (
   <span
     style={{
       backgroundColor: color,
-      borderRadius: '20px',
-      color: '#fff',
-      padding: '10px',
-      cursor: 'pointer',
+      borderRadius: "20px",
+      color: "#fff",
+      padding: "10px",
+      cursor: "pointer",
     }}
     onClick={() => {
       alert(`You clicked the color ${color} with label ${children}`);
-    }}>
+    }}
+  >
     {children}
   </span>
 );
