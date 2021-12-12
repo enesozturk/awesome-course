@@ -1,33 +1,49 @@
 {
   "name": "awesome-course",
-  "private": true,
+  "version": "0.0.1",
+  "description": "Create awesome courses that let your audience learn by coding.",
+  "source": "./src/index.js",
+  "bin": {
+    "awesome-course": "lib/index.js"
+  },
+  "files": [
+    "lib",
+    "examples"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev:cli": "nodemon --watch src -exec ts --exec npm run build:cli",
+    "dev:global": "nodemon --watch src -exec ts --exec \"npm run build:cli & npm run global\"",
+    "build:cli": "npm run clean:cli && tsc && babel src --out-dir lib --extensions \".ts,.js,.json\" --source-maps inline",
+    "clean:cli": "rm -rf ./lib",
+    "global": "npm i -g --quiet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enesozturk/awesome-course.git"
+  },
+  "author": "Enes Ozturk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/enesozturk/awesome-course/issues"
+  },
+  "homepage": "https://github.com/enesozturk/awesome-course#readme",
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^4.1.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.3"
   },
   "dependencies": {
-    "@monaco-editor/react": "^4.3.1",
-    "autoprefixer": "^10.4.0",
-    "gray-matter": "^4.0.3",
-    "next": "12.0.7",
-    "postcss": "^8.4.4",
-    "postcss-import": "^14.0.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-hot-toast": "^2.1.1",
-    "remark": "^14.0.2",
-    "remark-html": "^15.0.1",
-    "tailwindcss": "^3.0.0"
-  },
-  "devDependencies": {
-    "@svgr/webpack": "^6.1.1",
-    "@types/node": "^16.11.12",
-    "@types/react": "^17.0.37",
-    "@types/react-dom": "^17.0.11",
-    "eslint": "8.4.1",
-    "eslint-config-next": "12.0.7",
-    "typescript": "^4.5.3"
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-typescript": "^7.16.0",
+    "chalk": "4.1.1.",
+    "clear": "^0.1.0",
+    "commander": "6.2.0",
+    "fs": "^0.0.1-security",
+    "fs-extra": "^10.0.0",
+    "nodemon": "^2.0.15",
+    "path": "^0.12.7",
+    "temp": "^0.9.4"
   }
 }
