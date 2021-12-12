@@ -10,7 +10,7 @@ As a content creator, making video courses is exhausting. Filming, editing, came
 
 #### Example Course
 
-Want to see how does Awesome Course work? Try my small [Testing JavaScript](https://www.awesomecourse.dev/lesson/1/chapter/1) course
+Want to see how does Awesome Course work? Try my demo [Testing JavaScript](https://www.awesomecourse.dev/lesson/1) course.
 
 ### Features
 
@@ -35,7 +35,7 @@ Want to create an Awesome Course? Check out [the documentation website]().
 
 ### Contribute
 
-Want to contribute to Awesome Course? Check out [the documentation website]().
+Want to contribute to Awesome Course? Check out [CONTRIBUTE.md](./CONTRIBUTE.md).
 
 ### LICENCE
 
