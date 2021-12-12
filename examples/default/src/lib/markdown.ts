@@ -1,9 +1,17 @@
 import fs from "fs";
 import matter from "gray-matter";
 import { remark } from "remark";
-import remarkHtml from "remark-html";
+import remarkRehype from 'remark-rehype';
+import rehypeStringify from 'rehype-stringify';
+import rehypeHighlight from 'rehype-highlight';
 
 import { ROOT_PATH } from "./constants";
+
+const remarkRender = remark()
+  .use(remarkRehype)
+  .use(rehypeStringify)
+  .use(rehypeHighlight)
+  .processSync
 
 type ContentProps = {
   title: string;
@@ -24,7 +32,7 @@ export const renderHtml = (
   return {
     title: data?.title || "",
     fileNameToEdit: data.fileNameToEdit || null,
-    body: remark().use(remarkHtml).processSync(content).value,
+    body: remarkRender(content).toString(),
   };
 };
 
@@ -44,7 +52,7 @@ export const getStartFileProps = (lessonId: string): StartPageProps => {
   return {
     title: data?.title || "",
     description: data.description || "",
-    body: remark().use(remarkHtml).processSync(content).value,
+    body: remarkRender(content).toString(),
   };
 };
 
@@ -58,6 +66,6 @@ export const getCompletedFileProps = (lessonId: string): StartPageProps => {
   return {
     title: data?.title || "",
     description: data.description || "",
-    body: remark().use(remarkHtml).processSync(content).value,
+    body: remarkRender(content).toString(),
   };
 };
