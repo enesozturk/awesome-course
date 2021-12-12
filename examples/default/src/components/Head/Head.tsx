@@ -34,6 +34,7 @@ export default function Head() {
         />
         <meta name="twitter:site" content="@enesozt_" />
         <script async src="https://cdn.splitbee.io/sb.js"></script>
+        <script async src="https://platform.twitter.com/widgets.js"></script>
       </NextHead>
     </div>
   );

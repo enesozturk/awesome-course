@@ -42,8 +42,10 @@ export default function Completed({
             ) : null}
           </div>
           <div className="flex mt-8 pt-4 border-t border-gray-200 dark:border-gray-700">
-            <Link href="#">
-              <a className="button button-blue">Share on Twitter</a>
+            <Link href="https://twitter.com/share?ref_src=twsrc%5Etfw">
+              <a className="button button-blue" data-show-count="false">
+                Share on Twitter
+              </a>
             </Link>
           </div>
         </div>
