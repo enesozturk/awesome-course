@@ -1,53 +1,69 @@
 ---
-title: Hello World!
-fileNameToEdit: Button.test.js
+title: Introduction to Jest
+fileNameToEdit: sum.test.js
 ---
 
-# Chapter 1: Hello World!
+# Chapter 1: Introduction to Jest
 
-# An h1 header
+> Jest is a delightful JavaScript Testing Framework with a focus on simplicity. It works with projects using: Babel, TypeScript, Node, React, Angular, Vue and more!
 
-Paragraphs are separated by a blank line.
+As we understand from the Jest's description, we can use Jest on any app written with JavaScript. It includes many utility functions to be able to test something.
 
-2nd paragraph. _Italic_, **bold**, and `monospace`. Itemized lists
-look like:
+### How does it work?
 
-- this one
-- that one
-- the other one
+Main idea behind the Jest is really really simple. There is `input` and `output`, only thing a test does is **checking if the input and output is equal**. Simple right? Don't worry, we are going to do many exercises along the course. (This is the main idea of Awesome Course also. 😙)
 
-Note that --- not considering the asterisk --- the actual text
-content starts at 4-columns in.
+### Installing
 
-> Block quotes are
-> written like so.
->
-> They can span multiple paragraphs,
-> if you like.
+First of all, we need to install Jest like any other package. It will be effect our code quality, not the project itself. That is why it would be good to put it to `devDependencies`;
 
-Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
-in chapters 12--14"). Three dots ... will be converted to an ellipsis.
-Unicode is supported. ☺
-
-## An h2 header
-
-Here's a numbered list:
-
-1.  first item
-2.  second item
-3.  third item
-
-Note again how the actual text starts at 4 columns in (4 characters
-from the left side). Here's a code sample:
-
-    # Let me re-iterate ...
-    for i in 1 .. 10 { do-something(i) }
-
-As you probably guessed, indented 4 spaces. By the way, instead of
-indenting the block, you can use delimited blocks, if you like:
-
+```bash
+yarn add -D jest
 ```
-define foobar() {
-    print "Welcome to flavor country!";
+
+In our `package.json`, add a new script and give jest as a value:
+
+```json
+{
+  "scripts": {
+    "test": "jest"
+  }
 }
 ```
+
+Lets say we have an calculation function in our app. It's job is simple, sum two arguments and return the value:
+
+`sum.js`
+
+```js
+function sum(a, b) {
+  return a + b;
+}
+module.exports = sum;
+```
+
+And there will be our test file for `sum` function. There are two concept to create a test file:
+
+1. Create `sum.test.js` with the same location of `sum.js`
+2. Create `__tests__/sum.js` with the same location of `sum.js`
+
+We will continue our example with `sum.test.js` but the other one is totally ok, Jest will automaticly detect test files and run.
+
+### test
+
+Jest has a simple function called `test` by defualt. It takes two parameters; title for the test (it will be show on the console for better developer experience) and a function which test runner call.
+
+See the example:
+
+```js
+test("my awesome test title", () => {
+  // here, there will be our test assersions.
+});
+```
+
+Before getting deeper, lets test our knowladge and go to the next chapter.
+
+## Put it to test
+
+1. In `sum.test.js`, create and `test` function and give a title as 'adds 1 + 2 to equal 3'.
+2. In second paramter, leave function body should be empty.
