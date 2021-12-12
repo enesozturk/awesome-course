@@ -33,6 +33,7 @@ export default function Head() {
           content="https://www.awesomecourse.dev/awesome-course-og.png"
         />
         <meta name="twitter:site" content="@enesozt_" />
+        <script async src="https://cdn.splitbee.io/sb.js"></script>
       </NextHead>
     </div>
   );
