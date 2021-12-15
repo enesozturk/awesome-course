@@ -46,6 +46,7 @@ export default function Chapter({
   React.useEffect(() => {
     setShowDocument(true);
     setIsFailed(false);
+    setShowAnswer(false);
   }, [currentChapterId]);
 
   return (
