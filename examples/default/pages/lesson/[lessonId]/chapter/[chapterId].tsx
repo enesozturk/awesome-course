@@ -29,13 +29,19 @@ export default function Chapter({
   chaptersLength,
   currentChapterIndex,
 }: ChapterProps) {
-  const [showAnswer, setShowAnswer] = React.useState(false);
-  const [showDocument, setShowDocument] = React.useState(true);
-  const [isFailed, setIsFailed] = React.useState(false);
-  const { fileContent } = useEditorContext();
+  const {
+    fileContent,
+    showAnswer,
+    showDocument,
+    isFailed,
+    resetState,
+    setShowAnswer,
+    setShowDocument,
+    setIsFailed,
+  } = useEditorContext();
 
   const _checkAnswer = () => {
-    const isCorrect = checkAnswer(fileContent, answerFile?.body || "");
+    const isCorrect = checkAnswer(fileContent || "", answerFile?.body || "");
     setIsFailed(!isCorrect);
   };
 
@@ -44,9 +50,7 @@ export default function Chapter({
   };
 
   React.useEffect(() => {
-    setShowDocument(true);
-    setIsFailed(false);
-    setShowAnswer(false);
+    resetState();
   }, [currentChapterId]);
 
   return (
