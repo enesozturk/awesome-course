@@ -1,6 +1,6 @@
 {
   "name": "awesome-course",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Create awesome courses that let your audience learn by coding.",
   "source": "./src/index.js",
   "bin": {
@@ -15,7 +15,8 @@
     "dev:global": "nodemon --watch src -exec ts --exec \"npm run build:cli & npm run global\"",
     "build:cli": "npm run clean:cli && tsc && babel src --out-dir lib --extensions \".ts,.js,.json\" --source-maps inline",
     "clean:cli": "rm -rf ./lib",
-    "global": "npm i -g --quiet"
+    "global": "npm i -g --quiet",
+    "version": "auto-changelog -p && git add ."
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
   "homepage": "https://github.com/enesozturk/awesome-course#readme",
   "devDependencies": {
     "@docusaurus/preset-classic": "^2.0.0-beta.13",
+    "auto-changelog": "^2.3.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.3"
@@ -46,5 +48,11 @@
     "nodemon": "^2.0.15",
     "path": "^0.12.7",
     "temp": "^0.9.4"
+  },
+  "auto-changelog": {
+    "output": "CHANGELOG.md",
+    "template": "keepachangelog",
+    "unreleased": true,
+    "commitLimit": false
   }
 }
