@@ -1,9 +1,19 @@
 import { CodeFile } from "../components/Editor/Editor.types";
-import type { FooterProps } from "./Footer";
+
+type Chapter = {
+  id: number;
+};
 
 export type ChapterProps = {
-  answerFile: CodeFile | undefined;
+  title: string;
   content: string;
   codeFiles: CodeFile[];
+  answerFile: CodeFile | undefined;
   fileNameToEdit: string;
-} & FooterProps;
+  currentLessonId: string;
+  currentChapterId: string;
+  prevChapter: Chapter;
+  nextChapter: Chapter;
+  currentChapterIndex: number;
+  chaptersLength: number;
+};

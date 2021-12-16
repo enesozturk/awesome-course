@@ -1,7 +1,6 @@
 import React from "react";
 
 import Link from "next/link";
-import type { FooterProps } from "../../types/Footer";
 import { useEditorContext } from "../../context/hooks";
 
 import QuestionCircleSVG from "../../../public/svg/question-circle.svg";
@@ -12,26 +11,40 @@ import ArrowRightSVG from "../../../public/svg/arrow-right.svg";
 import DocumentSVG from "../../../public/svg/document.svg";
 import CodeFileSVG from "../../../public/svg/code-file.svg";
 import CheckSVG from "../../../public/svg/check.svg";
+import { checkAnswer } from "../../../src/utils/answerCheck";
+import type { ChapterProps } from "../../types/ChapterPage";
 
 import { getFooterValues } from "./Footer.utils";
 
 export default function Footer({
   title,
+  answerFile,
   currentLessonId,
   currentChapterId,
   prevChapter,
   nextChapter,
   currentChapterIndex,
   chaptersLength,
-  checkAnswer,
-  showAnswer,
-  setShowAnswer,
-  toggleShowDocument,
-  showDocument,
-  isFailed,
-}: FooterProps) {
+}: ChapterProps) {
   const isLastChapter = currentChapterIndex === chaptersLength - 1;
-  const { fileContent } = useEditorContext();
+  const {
+    fileContent,
+    showAnswer,
+    showDocument,
+    isFailed,
+    setShowAnswer,
+    setShowDocument,
+    setIsFailed,
+  } = useEditorContext();
+
+  const handleCheckAnswer = () => {
+    const isCorrect = checkAnswer(fileContent || "", answerFile?.body || "");
+    setIsFailed(!isCorrect);
+  };
+
+  const handleToggleShowDocument = () => {
+    setShowDocument(!showDocument);
+  };
 
   const { previouseChapterHref, nextChapterHref, chapterIndicatorText } =
     getFooterValues({
@@ -53,7 +66,10 @@ export default function Footer({
       </div>
       {fileContent ? (
         <div className="flex-1 flex justify-start md:justify-center">
-          <button onClick={checkAnswer} className="mr-4 button button-blue">
+          <button
+            onClick={handleCheckAnswer}
+            className="mr-4 button button-blue"
+          >
             <span className="hidden md:flex">
               {isFailed ? "Try Again" : "Check Answer"}
             </span>
@@ -77,7 +93,7 @@ export default function Footer({
             </button>
           ) : null}
           <button
-            onClick={toggleShowDocument}
+            onClick={handleToggleShowDocument}
             className="button button-default flex md:hidden"
           >
             <span className="hidden sm:flex mr-2">

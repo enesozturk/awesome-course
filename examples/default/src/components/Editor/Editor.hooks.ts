@@ -22,6 +22,10 @@ export const useEditor = ({ files, fileNameToEdit }: UseEditorProps) => {
 
   React.useEffect(() => {
     setFileContent(fileToEdit?.body);
+    const activeFile = sortedFiles.find(
+      (file) => file.fileName === fileNameToEdit
+    );
+    activeFile && setActiveFile(activeFile);
   }, [files]);
 
   return {
