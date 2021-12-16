@@ -10,48 +10,24 @@ import type { Context } from "../../../../src/utils/chapterPageMethods";
 import Footer from "../../../../src/components/Footer";
 import { ChapterProps } from "../../../../src/types/ChapterPage";
 import { useEditorContext } from "../../../../src/context/hooks";
-import { checkAnswer } from "../../../../src/utils/answerCheck";
 
 const Editor = dynamic(() => import("../../../../src/components/Editor"), {
   ssr: false,
 });
 
-export default function Chapter({
-  title,
-  answerFile,
-  content,
-  fileNameToEdit,
-  codeFiles,
-  prevChapter,
-  nextChapter,
-  currentLessonId,
-  currentChapterId,
-  chaptersLength,
-  currentChapterIndex,
-}: ChapterProps) {
-  const {
-    fileContent,
-    showAnswer,
-    showDocument,
-    isFailed,
-    resetState,
-    setShowAnswer,
-    setShowDocument,
-    setIsFailed,
-  } = useEditorContext();
-
-  const _checkAnswer = () => {
-    const isCorrect = checkAnswer(fileContent || "", answerFile?.body || "");
-    setIsFailed(!isCorrect);
-  };
-
-  const _toggleShowDocument = () => {
-    setShowDocument(!showDocument);
-  };
+export default function Chapter(props: ChapterProps) {
+  const { showAnswer, showDocument, resetState } = useEditorContext();
 
   React.useEffect(() => {
     resetState();
-  }, [currentChapterId]);
+  }, [props.currentChapterId]);
+
+  const editorProps = {
+    files: props.codeFiles,
+    answerFile: props.answerFile,
+    showAnswer,
+    fileNameToEdit: props.fileNameToEdit,
+  };
 
   return (
     <div className="app">
@@ -63,7 +39,7 @@ export default function Chapter({
         >
           <div
             className="pb-12"
-            dangerouslySetInnerHTML={{ __html: content }}
+            dangerouslySetInnerHTML={{ __html: props.content }}
           />
         </div>
         <div
@@ -71,33 +47,10 @@ export default function Chapter({
             showDocument ? "hidden md:flex" : ""
           }`}
         >
-          <Editor
-            files={codeFiles}
-            {...{
-              answerFile,
-              showAnswer,
-              fileNameToEdit,
-            }}
-          />
+          <Editor {...editorProps} />
         </div>
       </main>
-      <Footer
-        {...{
-          title: title || "",
-          prevChapter,
-          nextChapter,
-          currentLessonId,
-          currentChapterId,
-          chaptersLength,
-          currentChapterIndex,
-          checkAnswer: _checkAnswer,
-          showAnswer,
-          setShowAnswer,
-          toggleShowDocument: _toggleShowDocument,
-          showDocument,
-          isFailed,
-        }}
-      />
+      <Footer {...props} />
     </div>
   );
 }
