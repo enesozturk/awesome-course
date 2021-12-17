@@ -42,7 +42,7 @@ function sum(a, b) {
 module.exports = sum;
 ```
 
-And there will be our test file for out `sum` function. There are two concepts to create a test file:
+And there will be our test file for our `sum` function. There are two concepts to create a test file:
 
 1. Create `sum.test.js` at the same location as `sum.js`
 2. Create `__tests__/sum.js` at the same location as `sum.js`
