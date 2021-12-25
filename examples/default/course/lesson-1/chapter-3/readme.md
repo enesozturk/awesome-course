@@ -85,6 +85,6 @@ test("the shopping list has milk on it", () => {
 
 We have a utility function and it have different possibilities to return. Check `todo.js`. It filters todo list with the given filter criteria. I wrote the first test for you. We have a different matcher this time. `toHaveLength`
 
-1. Create new test above mine. Make an assertion to check if `not-completed` tasks length is expected (6).
+1. Create a new test below mine. Make an assertion to check if `not-completed` tasks length is expected (6).
 
 What is the benefit of this test? If somebody in your team change the `filterTodos` funtion, lets say he/she used `done` for `completed` and `undone` for `not-completed`. Our test will fail. We will be able to possible errors before our code goes production ✅
